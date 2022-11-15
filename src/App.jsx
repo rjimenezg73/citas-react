@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import Formulario from './components/formulario.jsx';
 import Header from './components/Header.jsx';
 import ListadoPacientes from './components/ListadoPacientes.jsx';
