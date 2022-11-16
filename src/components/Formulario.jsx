@@ -22,7 +22,7 @@ function Formulario() {
         </div>
 
         <div className='mb-5'>
-          <label htmlFor='propietario' className='block text-gray-700 uppercase'>Nombre del Propietario</label>
+          <label htmlFor='propietario' className='block text-gray-700 uppercase font-bold'>Nombre del Propietario</label>
           <input 
             id='propietario'
             type='text'
@@ -32,7 +32,7 @@ function Formulario() {
         </div>
 
         <div className='mb-5'>
-          <label htmlFor='email' className='block text-gray-700 uppercase'>E-mail</label>
+          <label htmlFor='email' className='block text-gray-700 uppercase font-bold'>E-mail</label>
           <input 
             id='email'
             type='email'
@@ -42,7 +42,7 @@ function Formulario() {
         </div>
 
         <div className='mb-5'>
-          <label htmlFor='alta' className='block text-gray-700 uppercase'>Alta de Paciente</label>
+          <label htmlFor='alta' className='block text-gray-700 uppercase font-bold'>Alta de Paciente</label>
           <input 
             id='alta'
             type='date'
@@ -51,7 +51,7 @@ function Formulario() {
         </div>
 
         <div className='mb-5'>
-          <label htmlFor='sintomas' className='block text-gray-700 uppercase'>Síntomas que presenta el Paciente</label>
+          <label htmlFor='sintomas' className='block text-gray-700 uppercase font-bold'>Síntomas que presenta el Paciente</label>
           <textarea
             id='sintomas'
             className='border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md'
