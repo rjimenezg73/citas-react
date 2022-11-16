@@ -9,10 +9,10 @@ function Formulario() {
         <span className='text-indigo-600 font-bold '>Administralos</span>
       </p>
 
-      <form className='bg-white shadow-md rounded-lg py-10 px-5 mb-10'>
+      <form className='bg-white shadow-xl rounded-lg py-10 px-5 mb-10'>
 
         <div className='mb-5'>
-          <label htmlFor='mascota' className='block text-gray-700 uppercase'>Nombre Mascota</label>
+          <label htmlFor='mascota' className='block text-gray-700 uppercase font-bold'>Nombre Mascota</label>
           <input 
             id='mascota'
             type='text'
