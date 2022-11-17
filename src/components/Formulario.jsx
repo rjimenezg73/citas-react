@@ -1,6 +1,14 @@
 import React from 'react'
+import { useState, useEffect } from 'react';
 
 function Formulario() {
+  const [ nombre, setNombre ] = useState('Hook');
+  // en nombre se almacena el valor del estado y en setNombre la función que modifica ese valor
+  // dentro de useSatate va el valor inicial del estado, en éste caso Hook
+
+console.log(nombre);
+
+
   return (
     <div className='md:w-1/2 lg:w-2/5'>
       <h2 className='font-black text-3xl text-center'>Seguimiento Pacientes</h2>
