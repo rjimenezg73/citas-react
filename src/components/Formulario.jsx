@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
 
-function Formulario() {
+function Formulario( { pacientes, setPacientes }) {
   const [ nombre, setNombre ] = useState('');
   // en nombre se almacena el valor del estado y en setNombre la función que modifica ese valor
   // dentro de useSatate va el valor inicial del estado, en éste caso Hook
@@ -24,6 +24,26 @@ function Formulario() {
     }
 
     setError(false);
+
+    // Objeto de Paciente
+    const objetoPaciente = {
+      nombre: nombre, 
+      propietario: propietario, 
+      email: email, 
+      fecha: fecha, 
+      sintomas: sintomas
+    }
+
+    //console.log(objetoPaciente);
+    setPacientes([...pacientes, objetoPaciente]);
+
+    // Reiniciando el formulario para nuevos datos
+    setNombre('');
+    setPropietario('');
+    setEmail('');
+    setFecha('');
+    setSintomas('');
+
   }
 
 
@@ -40,7 +60,7 @@ function Formulario() {
         className='bg-white shadow-xl rounded-lg py-10 px-5 mb-10'
       >
         { error && 
-          <p className='bg-red-700 text-white text-center p-3 uppercase font-bold mb-3 rounded-md'>Hay un error para enviar el formulario todos los campos son obligatorios</p>
+          <p className='bg-red-800 text-white text-center p-3 uppercase font-bold mb-3 rounded-md'>Hay un error para enviar el formulario todos los campos son obligatorios</p>
         }
         <div className='mb-5'>
           <label htmlFor='mascota' className='block text-gray-700 uppercase font-bold'>Nombre Mascota</label>
