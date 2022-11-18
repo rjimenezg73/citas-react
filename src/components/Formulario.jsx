@@ -5,16 +5,21 @@ function Formulario() {
   const [ nombre, setNombre ] = useState('');
   // en nombre se almacena el valor del estado y en setNombre la función que modifica ese valor
   // dentro de useSatate va el valor inicial del estado, en éste caso Hook
+  const [ propietario, setPropietario ] = useState('');
+  const [ email, setEmail ] = useState('');
+  const [ fecha, setFecha ] = useState('');
+  const [ sintomas, setSintomas ] = useState('');
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    alert('Enviando Formulario');
+    console.log('Enviando Formulario');
   }
 
 
   return (
-    <div className='md:w-1/2 lg:w-2/5'>
+    <div className='md:w-1/2 lg:w-2/5 mx-5'>
       <h2 className='font-black text-3xl text-center'>Seguimiento Pacientes</h2>
       <p className='text-lg mt-5 text-center mb-10'>
         Añade Pacientes y {' '}
@@ -46,6 +51,8 @@ function Formulario() {
             type='text'
             placeholder='Nombre del Propietario...'
             className='border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md'
+            value={propietario}
+            onChange = { (e) => setPropietario(e.target.value) } 
           />
         </div>
 
@@ -56,6 +63,8 @@ function Formulario() {
             type='email'
             placeholder='E-mail de Contacto...'
             className='border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md'
+            value={email}
+            onChange = { (e) => setEmail(e.target.value) } 
           />
         </div>
 
@@ -65,6 +74,8 @@ function Formulario() {
             id='alta'
             type='date'
             className='border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md'
+            value={fecha}
+            onChange = { (e) => setFecha(e.target.value) } 
           />
         </div>
 
@@ -74,6 +85,8 @@ function Formulario() {
             id='sintomas'
             className='border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md'
             placeholder='Describe las síntomas del Paciente...'
+            value={sintomas}
+            onChange = { (e) => setSintomas(e.target.value) } 
           />  
         </div>
 
