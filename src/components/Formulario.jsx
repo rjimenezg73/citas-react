@@ -2,12 +2,9 @@ import React from 'react'
 import { useState, useEffect } from 'react';
 
 function Formulario() {
-  const [ nombre, setNombre ] = useState('Hook');
+  const [ nombre, setNombre ] = useState('');
   // en nombre se almacena el valor del estado y en setNombre la función que modifica ese valor
   // dentro de useSatate va el valor inicial del estado, en éste caso Hook
-
-console.log(nombre);
-
 
   return (
     <div className='md:w-1/2 lg:w-2/5'>
@@ -26,6 +23,9 @@ console.log(nombre);
             type='text'
             placeholder='Nombre de la mascota...'
             className='border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md'
+            value={nombre}
+            //El onChange es exactamente igual a un eventListener en JS
+            onChange = { (e) => setNombre(e.target.value) } 
           />
         </div>
 
