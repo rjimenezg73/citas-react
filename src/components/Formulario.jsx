@@ -6,6 +6,13 @@ function Formulario() {
   // en nombre se almacena el valor del estado y en setNombre la función que modifica ese valor
   // dentro de useSatate va el valor inicial del estado, en éste caso Hook
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    alert('Enviando Formulario');
+  }
+
+
   return (
     <div className='md:w-1/2 lg:w-2/5'>
       <h2 className='font-black text-3xl text-center'>Seguimiento Pacientes</h2>
@@ -14,7 +21,10 @@ function Formulario() {
         <span className='text-indigo-600 font-bold '>Administralos</span>
       </p>
 
-      <form className='bg-white shadow-xl rounded-lg py-10 px-5 mb-10'>
+      <form 
+        onSubmit={handleSubmit} // Con esto podemos declarar una función en la parte de arriba
+        className='bg-white shadow-xl rounded-lg py-10 px-5 mb-10'
+      >
 
         <div className='mb-5'>
           <label htmlFor='mascota' className='block text-gray-700 uppercase font-bold'>Nombre Mascota</label>
