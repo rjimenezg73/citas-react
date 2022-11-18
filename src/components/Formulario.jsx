@@ -10,11 +10,20 @@ function Formulario() {
   const [ fecha, setFecha ] = useState('');
   const [ sintomas, setSintomas ] = useState('');
 
+  const [ error, setError ] = useState(false);
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    console.log('Enviando Formulario');
+    // Validación del formulario
+    if([ nombre, propietario, email, fecha, sintomas ].includes('')){
+      console.log('No se permiten campos vacíos en el formulario');
+      setError(true);
+      return;
+    }
+
+    setError(false);
   }
 
 
@@ -30,7 +39,9 @@ function Formulario() {
         onSubmit={handleSubmit} // Con esto podemos declarar una función en la parte de arriba
         className='bg-white shadow-xl rounded-lg py-10 px-5 mb-10'
       >
-
+        { error && 
+          <p className='bg-red-700 text-white text-center p-3 uppercase font-bold mb-3 rounded-md'>Hay un error para enviar el formulario todos los campos son obligatorios</p>
+        }
         <div className='mb-5'>
           <label htmlFor='mascota' className='block text-gray-700 uppercase font-bold'>Nombre Mascota</label>
           <input 
