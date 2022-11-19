@@ -13,6 +13,11 @@ function Formulario( { pacientes, setPacientes }) {
 
   const [ error, setError ] = useState(false);
 
+  const generarId = () => {
+    const random = Math.random().toString(36).substr(2);
+    const fecha = Date.now().toString(36);
+    return fecha + random;
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -32,7 +37,8 @@ function Formulario( { pacientes, setPacientes }) {
       propietario: propietario, 
       email: email, 
       fecha: fecha, 
-      sintomas: sintomas
+      sintomas: sintomas,
+      id: generarId()
     }
 
     //console.log(objetoPaciente);
@@ -61,9 +67,11 @@ function Formulario( { pacientes, setPacientes }) {
         className='bg-white shadow-xl rounded-lg py-10 px-5 mb-10'
       >
         { error && 
-          <Error 
-            mensaje = { "Hay un error: Todos los campos son obligatorios"}
-          />
+          <Error>
+            <p>
+              Hay un error: Todos los campos son obligatorios
+            </p>
+          </Error>
         }
         <div className='mb-5'>
           <label htmlFor='mascota' className='block text-gray-700 uppercase font-bold'>Nombre Mascota</label>
