@@ -6,6 +6,7 @@ import ListadoPacientes from './components/ListadoPacientes.jsx';
 function App() {
 
   const [ pacientes, setPacientes] = useState([]);
+  const [ paciente, setPaciente ] = useState({}) // Este lo usamos para el botón Editar, en éste caso es un objeto ya que será un solo registros
   
 
   return (
@@ -20,6 +21,7 @@ function App() {
         />
         <ListadoPacientes 
           pacientes = { pacientes }
+          setPaciente = { setPaciente }
         />
       </div>
       
