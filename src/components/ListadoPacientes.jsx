@@ -3,7 +3,11 @@ import Paciente from './Paciente';
 
 function ListadoPacientes({ pacientes, setPaciente }) {
 
-    console.log(pacientes.length === 0);
+  // useEffect(()=>{
+  //   if(pacientes.length > 0){
+  //     console.log('Se ha agregado un nuevo paciente');
+  //   }
+  // },[pacientes]);
 
   return (
     <div className='md:w-1/2 lg:w-3/5 md:h-screen overflow-y-scroll'>

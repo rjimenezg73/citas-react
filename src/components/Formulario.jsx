@@ -2,7 +2,7 @@ import React from 'react'
 import { useState, useEffect } from 'react';
 import Error from './Error';
 
-function Formulario( { pacientes, setPacientes }) {
+function Formulario( { pacientes, setPacientes, paciente }) {
   const [ nombre, setNombre ] = useState('');
   // en nombre se almacena el valor del estado y en setNombre la función que modifica ese valor
   // dentro de useSatate va el valor inicial del estado, en éste caso Hook
@@ -12,6 +12,25 @@ function Formulario( { pacientes, setPacientes }) {
   const [ sintomas, setSintomas ] = useState('');
 
   const [ error, setError ] = useState(false);
+
+  // useEffect(() => {
+  //   console.log(paciente);//Se va a ejecutar cuando el componente que esta la las dependencias, en el corchete cambia, esto es para este caso paciente. Y cambi con el botón editar de listadoPacientes.jsx
+  // },[paciente]);
+
+  // useEffect(() => {
+  //   console.log('El componente está listo');
+  // },[]);//Se pueden tener multiples useEffect en un componente. Si se dejan las dependencias vacías  quiere decir que solo se ejecutará una vez. Mientras que con dependencias se ejecutará cada que la dependencia cambie.
+
+  useEffect(() => {
+    if(Object.keys(paciente).length > 0){
+      setNombre(paciente.nombre);
+      setPropietario(paciente.propietario);
+      setEmail(paciente.email);
+      setFecha(paciente.fecha);
+      setSintomas(paciente.sintomas);
+    }
+  }, [paciente]);
+  
 
   const generarId = () => {
     const random = Math.random().toString(36).substr(2);
