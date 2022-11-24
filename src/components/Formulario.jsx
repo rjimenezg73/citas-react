@@ -64,7 +64,8 @@ function Formulario( { pacientes, setPacientes, paciente, setPaciente }) {
     if(paciente.id){
       // Editando paciente
       objetoPaciente.id = paciente.id; // Esto es porque lo quitamos del objeto de arriba
-      const pacientesActualizados = pacientes.map(pacienteStateAux => pacienteStateAux === paciente.id ? objetoPaciente : pacienteStateAux);
+
+      const pacientesActualizados = pacientes.map(pacienteStateAux => pacienteStateAux.id === paciente.id ? objetoPaciente : pacienteStateAux);
       setPacientes(pacientesActualizados);
       // Una vez actualizado el state hay que limpiarlo, pasando desde app como prop y luego agregando un obj vacío nuevamente
       setPaciente({});
