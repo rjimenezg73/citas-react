@@ -2,7 +2,7 @@ import React from 'react'
 import { useState, useEffect } from 'react';
 import Error from './Error';
 
-function Formulario( { pacientes, setPacientes, paciente }) {
+function Formulario( { pacientes, setPacientes, paciente, setPaciente }) {
   const [ nombre, setNombre ] = useState('');
   // en nombre se almacena el valor del estado y en setNombre la función que modifica ese valor
   // dentro de useSatate va el valor inicial del estado, en éste caso Hook
@@ -57,11 +57,22 @@ function Formulario( { pacientes, setPacientes, paciente }) {
       email: email, 
       fecha: fecha, 
       sintomas: sintomas,
-      id: generarId()
+      // id: generarId() ya no puede ir acá porque usaré éste objeto para editar los pacientes, por eso lo movemos al condicional editar/agregar
     }
 
-    //console.log(objetoPaciente);
-    setPacientes([...pacientes, objetoPaciente]);
+    // Verificando si se está editando o agregando paciente
+    if(paciente.id){
+      // Editando paciente
+      objetoPaciente.id = paciente.id; // Esto es porque lo quitamos del objeto de arriba
+      const pacientesActualizados = pacientes.map(pacienteStateAux => pacienteStateAux === paciente.id ? objetoPaciente : pacienteStateAux);
+      setPacientes(pacientesActualizados);
+      // Una vez actualizado el state hay que limpiarlo, pasando desde app como prop y luego agregando un obj vacío nuevamente
+      setPaciente({});
+    }else{
+      // Agregando nuevo paciente 
+      objetoPaciente.id = generarId();
+      setPacientes([...pacientes, objetoPaciente]);
+    }
 
     // Reiniciando el formulario para nuevos datos
     setNombre('');
@@ -154,7 +165,7 @@ function Formulario( { pacientes, setPacientes, paciente }) {
         <input
           type='submit'
           className='bg-indigo-600 w-full p-3 text-white uppercase rounded-md font-bold hover:bg-indigo-700 cursor-pointer transition-all'
-          value='Agregar Paciente'
+          value= { paciente.id ? 'Editar Paciente' : 'Agregar Paciente'}
         />
 
       </form>
