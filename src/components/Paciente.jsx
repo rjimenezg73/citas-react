@@ -1,6 +1,17 @@
 import React from 'react';
 
-const Paciente = ({paciente, setPaciente}) => {
+const Paciente = ({ paciente, setPaciente, eliminarPaciente }) => {
+
+  const handleEliminar = () => {
+    const respuesta = confirm('¿Deseas eliminar éste paciente?');
+    if(respuesta){
+      eliminarPaciente(paciente.id);
+      console.log('Eliminando...', paciente.id);
+    }else{
+      console.log('Eliminar CANCELADO');
+    }
+  };
+
   return (
     <div className='m-4 mb-10 ml-10 bg-white shadow-xl px-5 py-10 rounded-xl'>
       <p className='font-bold mb-3 text-gray-700 uppercase'>
@@ -33,6 +44,7 @@ const Paciente = ({paciente, setPaciente}) => {
         <button 
           type='button'
           className='py-2 px-10 bg-red-600 text-white hover:bg-red-900 font-bold uppercase rounded-lg'
+          onClick={ handleEliminar }
         >Eliminar</button>
       </div>
     </div>

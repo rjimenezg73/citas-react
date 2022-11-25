@@ -1,7 +1,7 @@
 import React from 'react';
 import Paciente from './Paciente';
 
-function ListadoPacientes({ pacientes, setPaciente }) {
+function ListadoPacientes({ pacientes, setPaciente, eliminarPaciente }) {
 
   // useEffect(()=>{
   //   if(pacientes.length > 0){
@@ -36,6 +36,7 @@ function ListadoPacientes({ pacientes, setPaciente }) {
                 key={ paciente.id }
                 paciente = { paciente }
                 setPaciente = { setPaciente }
+                eliminarPaciente = { eliminarPaciente }
               />
             ))}
           </>

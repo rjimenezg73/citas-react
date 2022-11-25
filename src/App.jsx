@@ -7,7 +7,12 @@ function App() {
 
   const [ pacientes, setPacientes] = useState([]);
   const [ paciente, setPaciente ] = useState({}) // Este lo usamos para el botón Editar, en éste caso es un objeto ya que será un solo registros
-  
+
+  const eliminarPaciente = (id) => {
+    console.log('Eliminando Paciente, ', id);
+    const pacientesActualizados = pacientes.filter(paciente => paciente.id ==! id);  
+    setPacientes(pacientesActualizados);
+  };
 
   return (
     <div className='container mx-auto mt-10'>
@@ -24,6 +29,7 @@ function App() {
         <ListadoPacientes 
           pacientes = { pacientes }
           setPaciente = { setPaciente }
+          eliminarPaciente = { eliminarPaciente }
         />
       </div>
       
