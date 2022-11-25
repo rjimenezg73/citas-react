@@ -23,11 +23,14 @@ function App() {
     localStorage.setItem('pacientes', JSON.stringify(pacientes)); // Ya sea un arreglo vacío o lleno de objetos, lo va a convertir a un string 
   }, [pacientes]);
 
+
   const eliminarPaciente = (id) => {
     console.log('Eliminando Paciente, ', id);
-    const pacientesActualizados = pacientes.filter(paciente => paciente.id ==! id);  
+    const pacientesActualizados = pacientes.filter(paciente => paciente.id !== id);  
     setPacientes(pacientesActualizados);
+    console.log('PA ',pacientesActualizados);
   };
+
 
   return (
     <div className='container mx-auto mt-10'>
